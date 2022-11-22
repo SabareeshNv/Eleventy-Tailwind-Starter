@@ -1,24 +1,57 @@
-<header class="py-4 shadow-md spacing-container">
-  <div class="flex flex-wrap justify-between items-center mx-auto">
-    <div class="font-semibold text-2xl">{{ site.siteName }}</div>
+<header class="py-6 bg-teal-600 text-gray-50">
+  <div class="max-w-5xl mx-auto px-4 xl:px-0 flex items-center justify-between">
+    <span class="text-2xl font-bold">{{ site.siteName }}</span>
 
-    <button id="toggle" class="md:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    <div class="menu-btn cursor-pointer lg:hidden" onclick="toggleSlideOver()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
-    </button>
+    </div>
 
-    <nav id="nav" class="hidden md:flex w-full md:w-auto">
-      <ul class="pt-5 md:pt-0 md:flex md:gap-12">
+    <div id="slideover-container" class="fixed inset-0 w-full h-full invisible lg:hidden">
+      <div id="slideover-bg" onclick="toggleSlideOver()"
+        class="absolute inset-0 w-full h-full bg-gray-900 opacity-0 duration-500 ease-out transition-all"></div>
+
+      <div id="slideover"
+        class="absolute w-80 min-w-64 h-full right-0 top-0 bg-white translate-x-full duration-500 ease-out transition-all">
+
+        <div class="w-10 h-10 text-gray-600 cursor-pointer mt-8 ml-6" onclick="toggleSlideOver()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+
+        <nav class="h-full">
+          <ul class="flex flex-col space-y-10 ml-10 mt-8">
+            {% for item in navbar.items %}
+
+            <li class="">
+              <a href="{{ item.url }}" class="text-gray-900 font-semibold">{{ item.text }}</a>
+            </li>
+
+            {% endfor %}
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+
+
+    <nav class="hidden lg:block">
+      <ul class="flex flex-wrap space-x-10">
         {% for item in navbar.items %}
 
         <li>
-          <a href="{{ item.url }}"
-            class="block text-center py-3 md:py-0 text-lg font-medium hover:underline">{{ item.text }}</a>
+          <a href="{{ item.url }}" class="font-semibold text-gray-100">{{ item.text }}</a>
         </li>
 
         {% endfor %}
       </ul>
     </nav>
+
   </div>
+
 </header>
