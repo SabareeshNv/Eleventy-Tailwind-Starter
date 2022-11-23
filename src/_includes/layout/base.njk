@@ -6,15 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% include "partials/_googlefonts.njk" %}
+  {% include "partials/_metaTags.njk" %}
   <link rel="stylesheet" href="/css/style.css" />
   <script type="text/javascript" src="/assets/js/script.js" defer></script>
   <title>{{ title }} - {{ site.siteName }}</title>
 </head>
 
-<body class="bg-slate-50 font-sans">
+<body class="font-sans">
   {% include "partials/_navbar.njk" %}
 
-  <div class="content spacing-container">
+  <div class="content container">
     {{ content | safe }}
   </div>
 

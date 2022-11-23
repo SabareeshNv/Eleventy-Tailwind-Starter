@@ -1,5 +1,6 @@
 {
   "baseURL": "Site URL",
   "siteName": "Site Name",
-  "author": "Author Name"
+  "author": "Author Name",
+  "siteDescription": "My website's description"
 }

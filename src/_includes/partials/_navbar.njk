@@ -1,6 +1,8 @@
 <header class="py-4 bg-teal-600 text-gray-50">
-  <div class="max-w-5xl mx-auto px-4 xl:px-0 flex items-center justify-between">
-    <span class="text-2xl font-bold">{{ site.siteName }}</span>
+  <div class="container flex items-center justify-between">
+    <label class="text-2xl font-bold">
+      <a href="/">{{ site.siteName }}</a>
+    </label>
 
     <div class="menu-btn cursor-pointer lg:hidden" onclick="toggleSlideOver()">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -9,12 +11,12 @@
       </svg>
     </div>
 
-    <div id="slideover-container" class="fixed inset-0 w-full h-full invisible lg:hidden">
+    <div id="slideover-container" class="fixed inset-0 invisible lg:hidden z-50">
       <div id="slideover-bg" onclick="toggleSlideOver()"
-        class="absolute inset-0 w-full h-full bg-gray-900 opacity-0 duration-500 ease-out transition-all"></div>
+        class="absolute inset-0 w-full h-full bg-gray-900 opacity-0 duration-500 ease-in-out transition-all"></div>
 
       <div id="slideover"
-        class="absolute w-80 min-w-64 h-full right-0 top-0 bg-white translate-x-full duration-500 ease-out transition-all">
+        class="absolute w-1/2 h-screen right-0 top-0 bg-white translate-x-full duration-500 ease-in-out transition-all">
 
         <div class="w-10 h-10 text-gray-600 cursor-pointer mt-8 ml-6" onclick="toggleSlideOver()">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -23,12 +25,13 @@
           </svg>
         </div>
 
-        <nav class="h-full">
-          <ul class="flex flex-col space-y-10 p-8">
+        <nav class="h-full p-8">
+          <ul class=" flex flex-col space-y-10">
             {% for item in navbar.items %}
 
-            <li class="">
-              <a href="{{ item.url }}" class="block text-gray-700 hover:text-red-900 font-semibold">{{ item.text }}</a>
+            <li class="py-2">
+              <a href="{{ item.url | url }}"
+                class="block text-gray-700 hover:text-red-700 font-semibold">{{ item.text }}</a>
             </li>
 
             {% endfor %}
@@ -45,7 +48,7 @@
         {% for item in navbar.items %}
 
         <li>
-          <a href="{{ item.url }}" class="font-semibold text-gray-100">{{ item.text }}</a>
+          <a href="{{ item.url | url }}" class="font-semibold text-gray-100">{{ item.text }}</a>
         </li>
 
         {% endfor %}
