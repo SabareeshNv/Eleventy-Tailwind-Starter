@@ -5,6 +5,9 @@ const navbarToggle = () => {
   });
 };
 
+
+//Using onClick handler. No need to listen to event
+// Mobile & Tablet slide over style menu
 function toggleSlideOver() {
   document.getElementById('slideover-container').classList.toggle('invisible');
   document.getElementById('slideover-bg').classList.toggle('opacity-0');
@@ -15,7 +18,6 @@ function toggleSlideOver() {
 // Used so we can add more than one function in this same js script
 const app = () => {
   // navbarToggle();
-  toggleSlideOver();
 };
 
 app();
