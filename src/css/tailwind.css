@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* @layer utilities {
     .spacing-container {
         @apply px-[2.5%] md:px-[7.5%] lg:px-[10%];
     }
-}
+} */
 
 
 @layer components {
     blockquote {
-        @apply p-4;
+        @apply p-2;
     }
 }
